@@ -23,9 +23,6 @@ class Beer < ApplicationRecord
 
   end
 
-  def clean_string(string)
-    string.gsub(' ', '_')
-  end
 
 
 end
