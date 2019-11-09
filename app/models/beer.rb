@@ -1,6 +1,7 @@
 class Beer < ApplicationRecord
 
-  # 25 beers or less by page.
+  # Reads beers from punkapi & store them
+  # 25 beers or less by page
   #
   # @param: page [int] - beers list page
   # @param: id [int] - beer id
@@ -8,6 +9,9 @@ class Beer < ApplicationRecord
   # @param: abv [int] - integer to search in ABV
   def get_beers(params)
     byebug
+
+
+
     # get_beers_by_page()
     @beers = get_beers_by_page(1) if params.empty?
     @beers = get_beers_by_page(params['page']) if params['page'].present?
@@ -18,6 +22,7 @@ class Beer < ApplicationRecord
 
   # Gets all stored beers (Model Beer)
   def get_all_beers
+    Beer.all
   end
 
   def get_beers_by_page(page)

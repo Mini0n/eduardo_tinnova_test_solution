@@ -19,10 +19,13 @@ RSpec.describe BeersService do
     end
   end
 
-  describe '#get_beers_by_name', :vcr, record: :new_episodes do
+  describe '#get_beers_by_query', :vcr, record: :new_episodes do
+    before(:all) do
+      @service = BeersService.new
+    end
+
     it 'gets beers with "buzz" in its name & saves them' do
-      service = BeersService.new
-      response = service.get_beers_by_name('buzz')
+      response = @service.get_beers_by_query(name: 'buzz')
 
       result = JSON.parse(response.body)
       beer = Beer.first
@@ -34,12 +37,9 @@ RSpec.describe BeersService do
       expect(result.first['tagline']).to eq beer.tagline
       expect(result.first['description']).to eq beer.description
     end
-  end
 
-  describe '#get_beers_by_abv', :vcr, record: :new_episodes do
     it 'gets beers with abv=4.5 & saves them' do
-      service = BeersService.new
-      response = service.get_beers_by_abv(4.5)
+      response = @service.get_beers_by_query(abv: 4.5)
 
       result = JSON.parse(response.body)
       beer = Beer.first
@@ -51,12 +51,9 @@ RSpec.describe BeersService do
       expect(result.first['tagline']).to eq beer.tagline
       expect(result.first['description']).to eq beer.description
     end
-  end
 
-  describe '#get_beers_by_page', :vcr, record: :new_episodes do
     it 'gets beers for page=1 & saves them' do
-      service = BeersService.new
-      response = service.get_beers_by_page(1)
+      response = @service.get_beers_by_query(page: 1)
 
       result = JSON.parse(response.body)
       beer = Beer.first

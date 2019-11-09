@@ -5,8 +5,22 @@ class BeersService
     @con = Faraday.new(url: @punk_api)
   end
 
-  # beer
-  # id, name, tagline, description, abv
+  # Beers will be searched through name and ABV
+  # We advance through the beer list with page
+  # We get a beer by its id
+  # Beers are saved as (Model) Beer once retrieved
+
+  def get_beers_by_query(name: nil, abv: nil, page: 1)
+    query = { page: page }
+    query.merge!(name: clean_string(name)) if name.present?
+    query.merge!(abv_lt: (abv + 0.1), abv_gt: (abv - 0.1)) if abv.present?
+
+    res = @con.get '', query
+    return res if res.status != 200
+
+    save_beers(JSON.parse(res.body))
+    res
+  end
 
   def get_beer_by_id(id)
     params = { ids: id }
@@ -17,32 +31,6 @@ class BeersService
     res
   end
 
-  def get_beers_by_name(name, page = 1)
-    params = { name: clean_string(name), page: page }
-    res = @con.get '', params
-    return res if res.status != 200
-
-    save_beers(JSON.parse(res.body))
-    res
-  end
-
-  def get_beers_by_abv(abv, page = 1)
-    params = { abv_lt: (abv + 0.1), abv_gt: (abv - 0.1), page: page }
-    res = @con.get '', params
-    return res if res.status != 200
-
-    save_beers(JSON.parse(res.body))
-    res
-  end
-
-  def get_beers_by_page(page = 1)
-    params = { page: page }
-    res = @con.get '', params
-    return res if res.status != 200
-
-    save_beers(JSON.parse(res.body))
-    res
-  end
 
   def save_beers(beers)
     beers.each { |beer| save_beer(beer) }
@@ -60,5 +48,4 @@ class BeersService
   def clean_string(string)
     string.gsub(' ', '_')
   end
-
 end
