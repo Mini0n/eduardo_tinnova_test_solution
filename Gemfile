@@ -49,6 +49,9 @@ group :development, :test do
   # Rspec
   gem 'rspec-rails'
   gem 'database_cleaner'
+
+  # VCR to test APi without running out of data
+  gem 'vcr'
 end
 
 group :development do

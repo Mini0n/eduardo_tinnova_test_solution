@@ -23,9 +23,5 @@ RSpec.describe AuthenticationController, type: :controller do
         expect(response.body).to eq 'null'
       end
     end
-
-
-
-
   end
 end
