@@ -7,8 +7,6 @@ class BeersController < ApplicationController
   # @param: page [int] - beers list page
   # @param: id [int] - beer id
   # @param: name [string] - string to search in name
-  # @param: tagline [string] - string to search in tagline
-  # @param: description [string] - string to search in description
   # @param: abv [int] - integer to search in ABV
   def index
     @beer = Beer.new unless @beer.present?

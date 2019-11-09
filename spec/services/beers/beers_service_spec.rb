@@ -53,4 +53,21 @@ RSpec.describe BeersService do
     end
   end
 
+  describe '#get_beers_by_page', :vcr, record: :new_episodes do
+    it 'gets beers for page=1 & saves them' do
+      service = BeersService.new
+      response = service.get_beers_by_page(1)
+
+      result = JSON.parse(response.body)
+      beer = Beer.first
+
+      expect(response.status).to eq 200
+      expect(result.length).to eq 25
+      expect(result.first['id']).to eq 1
+      expect(result.first['name']).to eq beer.name
+      expect(result.first['tagline']).to eq beer.tagline
+      expect(result.first['description']).to eq beer.description
+    end
+  end
+
 end

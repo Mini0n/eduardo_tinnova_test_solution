@@ -1,12 +1,10 @@
 class Beer < ApplicationRecord
 
-  # 25 beers by page.
+  # 25 beers or less by page.
   #
   # @param: page [int] - beers list page
   # @param: id [int] - beer id
   # @param: name [string] - string to search in name
-  # @param: tagline [string] - string to search in tagline
-  # @param: description [string] - string to search in description
   # @param: abv [int] - integer to search in ABV
   def get_beers(params)
     byebug
@@ -16,6 +14,10 @@ class Beer < ApplicationRecord
 
 
 
+  end
+
+  # Gets all stored beers (Model Beer)
+  def get_all_beers
   end
 
   def get_beers_by_page(page)

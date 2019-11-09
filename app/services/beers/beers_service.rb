@@ -5,7 +5,6 @@ class BeersService
     @con = Faraday.new(url: @punk_api)
   end
 
-
   # beer
   # id, name, tagline, description, abv
 
@@ -18,8 +17,8 @@ class BeersService
     res
   end
 
-  def get_beers_by_name(name)
-    params = { name: clean_string(name) }
+  def get_beers_by_name(name, page = 1)
+    params = { name: clean_string(name), page: page }
     res = @con.get '', params
     return res if res.status != 200
 
@@ -27,8 +26,17 @@ class BeersService
     res
   end
 
-  def get_beers_by_abv(abv)
-    params = { abv_lt: (abv + 0.1), abv_gt: (abv - 0.1) }
+  def get_beers_by_abv(abv, page = 1)
+    params = { abv_lt: (abv + 0.1), abv_gt: (abv - 0.1), page: page }
+    res = @con.get '', params
+    return res if res.status != 200
+
+    save_beers(JSON.parse(res.body))
+    res
+  end
+
+  def get_beers_by_page(page = 1)
+    params = { page: page }
     res = @con.get '', params
     return res if res.status != 200
 
