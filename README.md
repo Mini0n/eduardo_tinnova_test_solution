@@ -1,3 +1,42 @@
+Ready to go :)
+
+# Routes: 
+```
+  post 'auth/login', to: 'authentication#login'
+
+  get 'beers/all', to: 'beers#get_all'
+  get 'beers/favs', to: 'beers#get_favs'
+  get 'beers/:id/fav', to: 'beers#toggle_fav'
+
+  resources :beers
+```
+
+# Testing
+Just run rspec in the proyect folder
+```
+ rspec
+```
+# Screeshots
+
+| Screenshot                                   | Description                                     |
+|----------------------------------------------|-------------------------------------------------|
+| [POST Auth](https://ibb.co/DbzKXvH)          | sings in, gets auth token                       |
+| [GET beers](https://ibb.co/vzyX2S1)          | gets 1st page from punkapi                      |
+| [GET beers/:id](https://ibb.co/yN3VKTp)      | gets beer w/ id=:id from punkapi                |
+| [GET beers?name=sth](https://ibb.co/8DCMsz5) | gets beers w/ name=sth from punkapi             |
+| [GET beers?abv=num](https://ibb.co/fM0Qk3k)  | gets beers w/ abv=num from punkapi (res 0.1)    |
+| [GET beers?page=num](https://ibb.co/rvy4n0P) | gets beers in page=num from punkapi             |
+| [GET beetrs/favs](https://ibb.co/k11zsWV)    | gets fav beers for current user                 |
+| [GET beers/:id/fav](https://ibb.co/qdLqwpf)  | toggles favorite for beer w/ id=:id in punkapi  |
+| [GET beetrs/favs](https://ibb.co/V9th0pm)    | gets fav beers for current user                 |
+| [GET beers/:id/fav](https://ibb.co/ZYP1MzY)  | toggles favorite for beer w/ id=:id in punkapi  |
+| [GET beetrs/favs](https://ibb.co/XVb6zmp)    | gets fav beers for current user                 |
+| [GET beers/all](https://ibb.co/GvSB70m)      | gets all stored beers                           |
+
+
+----------------
+
+
 # Tinnova Api Test
 
 Welcome!
