@@ -4,9 +4,10 @@ class UserBeer < ApplicationRecord
 
   def get_favs(user)
     @user = user
-    UserBeer.where(user: @user, favorite: true).map do |beer|
+    res = UserBeer.where(user: @user, favorite: true).map do |beer|
       read_beer(beer)
     end
+    res
   end
 
   def toggle_fav(beer_id, user)

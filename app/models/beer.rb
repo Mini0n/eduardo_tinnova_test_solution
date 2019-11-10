@@ -51,7 +51,7 @@ class Beer < ApplicationRecord
   end
 
   def service
-    @service = BeersService.new(@user) unless @service.present?
+    @service = Beers::BeersService.new(@user) unless @service.present?
     @service
   end
 end

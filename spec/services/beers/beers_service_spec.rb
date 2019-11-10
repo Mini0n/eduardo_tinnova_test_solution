@@ -1,10 +1,10 @@
 require 'rails_helper'
 require 'vcr'
 
-RSpec.describe BeersService do
+RSpec.describe Beers::BeersService do
   describe '#get_beer_by_id', :vcr, record: :new_episodes do
     it 'gets beer id=1 & saves it' do
-      service = BeersService.new
+      service = Beers::BeersService.new(User.first)
       response = service.get_beer_by_id(1)
 
       result = JSON.parse(response.body).first
@@ -20,7 +20,7 @@ RSpec.describe BeersService do
 
   describe '#get_beers_by_query', :vcr, record: :new_episodes do
     before(:all) do
-      @service = BeersService.new
+      @service = Beers::BeersService.new(User.first)
     end
 
     it 'gets beers with "buzz" in its name & saves them' do

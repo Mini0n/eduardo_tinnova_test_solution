@@ -46,8 +46,6 @@ RSpec.describe BeersController, type: :controller do
       get 'index', params: { page: 10 }
       result = JSON.parse(response.body)
 
-      ap result
-
       expect(response.status).to eq 200
       expect(result['status']).to eq 200
       expect(result['beers'].length).to eq 25
