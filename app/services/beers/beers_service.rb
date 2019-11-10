@@ -1,6 +1,7 @@
 class BeersService
 
-  def initialize
+  def initialize(user)
+    @user = user
     @punk_api = 'https://api.punkapi.com/v2/beers'
     @con = Faraday.new(url: @punk_api)
   end
@@ -42,6 +43,9 @@ class BeersService
     beer = Beer.new(id: id, name: beer['name'], tagline: beer['tagline'],
                     description: beer['description'], abv: beer['abv'].to_d)
     beer.save
+    user_beer = UserBeer.new(user: @user, beer: beer,
+                             favorite: false, seen_at: Time.now.localtime)
+    user_beer.save
   end
 
   def clean_string(string)

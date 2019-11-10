@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   post 'auth/login', to: 'authentication#login'
 
   resources :beers
+  get 'beers/all', to: 'beers#get_all'
+  get 'beers/favs', to: 'beers#get_favs'
+  get 'beer/:id/fav', to: 'beers#toggle_fav'
 end
