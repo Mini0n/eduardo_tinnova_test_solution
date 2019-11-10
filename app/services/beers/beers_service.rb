@@ -11,7 +11,7 @@ class BeersService
   # Beers are saved as (Model) Beer once retrieved
 
   def get_beers_by_query(name: nil, abv: nil, page: 1)
-    query = { page: page }
+    query = { page: page || 1 }
     query.merge!(name: clean_string(name)) if name.present?
     query.merge!(abv_lt: (abv + 0.1), abv_gt: (abv - 0.1)) if abv.present?
 
@@ -23,14 +23,13 @@ class BeersService
   end
 
   def get_beer_by_id(id)
-    params = { ids: id }
+    params = { ids: id.to_i }
     res = @con.get '', params
     return res if res.status != 200
 
     save_beers(JSON.parse(res.body))
     res
   end
-
 
   def save_beers(beers)
     beers.each { |beer| save_beer(beer) }

@@ -1,35 +1,33 @@
+# include BeersService
+
 class Beer < ApplicationRecord
 
-  # Reads beers from punkapi & store them
+  def get_beer(beer_id)
+    service.get_beer_by_id(beer_id)
+  end
+
+  # Reads beers from punkapi & stores them
   # 25 beers or less by page
   #
   # @param: page [int] - beers list page
-  # @param: id [int] - beer id
   # @param: name [string] - string to search in name
   # @param: abv [int] - integer to search in ABV
   def get_beers(params)
-    byebug
-
-
-
-    # get_beers_by_page()
-    @beers = get_beers_by_page(1) if params.empty?
-    @beers = get_beers_by_page(params['page']) if params['page'].present?
-
-
-
+    service.get_beers_by_query(
+      page: (params['page'] if params['page'].present?),
+      name: (params['name'] if params['name'].present?),
+       abv: (params['abv'].to_d if params['abv'].present?)
+    )
   end
 
-  # Gets all stored beers (Model Beer)
-  def get_all_beers
-    Beer.all
+  # # Gets all stored beers (Model Beer)
+  # def get_all_beers
+  #   Beer.all
+  # end
+
+
+  def service
+    @service = BeersService.new unless @service.present?
+    @service
   end
-
-  def get_beers_by_page(page)
-    byebug
-
-  end
-
-
-
 end

@@ -2,7 +2,6 @@ require 'rails_helper'
 require 'vcr'
 
 RSpec.describe BeersService do
-
   describe '#get_beer_by_id', :vcr, record: :new_episodes do
     it 'gets beer id=1 & saves it' do
       service = BeersService.new
