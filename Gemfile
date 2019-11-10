@@ -37,10 +37,21 @@ gem 'jwt'
 # Use Active Model Serializers
 gem 'active_model_serializers', '~> 0.10.0'
 
+# Awesome print
+gem 'awesome_print'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # Rspec
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+
+  # VCR to test APi without running out of data
+  gem 'vcr'
 end
 
 group :development do

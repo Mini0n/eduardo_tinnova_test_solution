@@ -1,0 +1,80 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.punkapi.com/v2/beers?ids=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sun, 10 Nov 2019 04:16:45 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      set-cookie:
+      - __cfduid=d415050599ee70ddb57e5d873471039231573359405; expires=Mon, 09-Nov-20
+        04:16:45 GMT; path=/; domain=.punkapi.com; HttpOnly
+      access-control-allow-origin:
+      - "*"
+      cache-control:
+      - public, max-age=14400, must-revalidate
+      x-dns-prefetch-control:
+      - 'off'
+      etag:
+      - W/"665-a4PwNgVseDJk55YVoajv4/LcqL8"
+      x-download-options:
+      - noopen
+      strict-transport-security:
+      - max-age=15552000; includeSubDomains
+      x-xss-protection:
+      - 1; mode=block
+      x-ratelimit-limit:
+      - '3600'
+      access-control-allow-credentials:
+      - 'true'
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-ratelimit-reset:
+      - '1573337587'
+      x-ratelimit-remaining:
+      - '3490'
+      access-control-expose-headers:
+      - x-ratelimit-limit,x-ratelimit-remaining,content-length,origin,content-type,accept
+      x-now-cache:
+      - MISS
+      x-now-trace:
+      - oma1
+      x-now-id:
+      - oma1:sfo1:mz7bc-1573335614125-957a1a9edfb1
+      cf-cache-status:
+      - HIT
+      age:
+      - '23791'
+      expect-ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      vary:
+      - Accept-Encoding
+      server:
+      - cloudflare
+      cf-ray:
+      - 5335367eca41ec5e-DFW
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3siaWQiOjEsIm5hbWUiOiJCdXp6IiwidGFnbGluZSI6IkEgUmVhbCBCaXR0ZXIgRXhwZXJpZW5jZS4iLCJmaXJzdF9icmV3ZWQiOiIwOS8yMDA3IiwiZGVzY3JpcHRpb24iOiJBIGxpZ2h0LCBjcmlzcCBhbmQgYml0dGVyIElQQSBicmV3ZWQgd2l0aCBFbmdsaXNoIGFuZCBBbWVyaWNhbiBob3BzLiBBIHNtYWxsIGJhdGNoIGJyZXdlZCBvbmx5IG9uY2UuIiwiaW1hZ2VfdXJsIjoiaHR0cHM6Ly9pbWFnZXMucHVua2FwaS5jb20vdjIva2VnLnBuZyIsImFidiI6NC41LCJpYnUiOjYwLCJ0YXJnZXRfZmciOjEwMTAsInRhcmdldF9vZyI6MTA0NCwiZWJjIjoyMCwic3JtIjoxMCwicGgiOjQuNCwiYXR0ZW51YXRpb25fbGV2ZWwiOjc1LCJ2b2x1bWUiOnsidmFsdWUiOjIwLCJ1bml0IjoibGl0cmVzIn0sImJvaWxfdm9sdW1lIjp7InZhbHVlIjoyNSwidW5pdCI6ImxpdHJlcyJ9LCJtZXRob2QiOnsibWFzaF90ZW1wIjpbeyJ0ZW1wIjp7InZhbHVlIjo2NCwidW5pdCI6ImNlbHNpdXMifSwiZHVyYXRpb24iOjc1fV0sImZlcm1lbnRhdGlvbiI6eyJ0ZW1wIjp7InZhbHVlIjoxOSwidW5pdCI6ImNlbHNpdXMifX0sInR3aXN0IjpudWxsfSwiaW5ncmVkaWVudHMiOnsibWFsdCI6W3sibmFtZSI6Ik1hcmlzIE90dGVyIEV4dHJhIFBhbGUiLCJhbW91bnQiOnsidmFsdWUiOjMuMywidW5pdCI6ImtpbG9ncmFtcyJ9fSx7Im5hbWUiOiJDYXJhbWFsdCIsImFtb3VudCI6eyJ2YWx1ZSI6MC4yLCJ1bml0Ijoia2lsb2dyYW1zIn19LHsibmFtZSI6Ik11bmljaCIsImFtb3VudCI6eyJ2YWx1ZSI6MC40LCJ1bml0Ijoia2lsb2dyYW1zIn19XSwiaG9wcyI6W3sibmFtZSI6IkZ1Z2dsZXMiLCJhbW91bnQiOnsidmFsdWUiOjI1LCJ1bml0IjoiZ3JhbXMifSwiYWRkIjoic3RhcnQiLCJhdHRyaWJ1dGUiOiJiaXR0ZXIifSx7Im5hbWUiOiJGaXJzdCBHb2xkIiwiYW1vdW50Ijp7InZhbHVlIjoyNSwidW5pdCI6ImdyYW1zIn0sImFkZCI6InN0YXJ0IiwiYXR0cmlidXRlIjoiYml0dGVyIn0seyJuYW1lIjoiRnVnZ2xlcyIsImFtb3VudCI6eyJ2YWx1ZSI6MzcuNSwidW5pdCI6ImdyYW1zIn0sImFkZCI6Im1pZGRsZSIsImF0dHJpYnV0ZSI6ImZsYXZvdXIifSx7Im5hbWUiOiJGaXJzdCBHb2xkIiwiYW1vdW50Ijp7InZhbHVlIjozNy41LCJ1bml0IjoiZ3JhbXMifSwiYWRkIjoibWlkZGxlIiwiYXR0cmlidXRlIjoiZmxhdm91ciJ9LHsibmFtZSI6IkNhc2NhZGUiLCJhbW91bnQiOnsidmFsdWUiOjM3LjUsInVuaXQiOiJncmFtcyJ9LCJhZGQiOiJlbmQiLCJhdHRyaWJ1dGUiOiJmbGF2b3VyIn1dLCJ5ZWFzdCI6Ild5ZWFzdCAxMDU2IC0gQW1lcmljYW4gQWxl4oSiIn0sImZvb2RfcGFpcmluZyI6WyJTcGljeSBjaGlja2VuIHRpa2thIG1hc2FsYSIsIkdyaWxsZWQgY2hpY2tlbiBxdWVzYWRpbGxhIiwiQ2FyYW1lbCB0b2ZmZWUgY2FrZSJdLCJicmV3ZXJzX3RpcHMiOiJUaGUgZWFydGh5IGFuZCBmbG9yYWwgYXJvbWFzIGZyb20gdGhlIGhvcHMgY2FuIGJlIG92ZXJwb3dlcmluZy4gRHJvcCBhIGxpdHRsZSBDYXNjYWRlIGluIGF0IHRoZSBlbmQgb2YgdGhlIGJvaWwgdG8gbGlmdCB0aGUgcHJvZmlsZSB3aXRoIGEgYml0IG9mIGNpdHJ1cy4iLCJjb250cmlidXRlZF9ieSI6IlNhbSBNYXNvbiA8c2FtamJtYXNvbj4ifV0=
+    http_version: 
+  recorded_at: Sun, 10 Nov 2019 04:16:45 GMT
+recorded_with: VCR 5.0.0
